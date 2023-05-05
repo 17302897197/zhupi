@@ -16,14 +16,13 @@ int  readOfChar(FILE* fl)
 	{
 		ch++;
 	}
-	rewind(fl);//文件句柄移到开头
+	rewind(fl);
 	return ch;
 }
 
 int  readOfWord(FILE*fl)
 {
-	//读单词，移动指针找到 “空格” 或者“逗号”	
-	//开一段空间，读到内存进行控制，提高效率
+	//读单词
 	char buffer[1024];
 	int start = 0;
 	char ch;
@@ -33,7 +32,6 @@ int  readOfWord(FILE*fl)
 		start++;
 	}
 	buffer[start] = '\0';
-	//已经读到buffer当中
 
 	start = 0;
 	int count = 0;
@@ -71,7 +69,7 @@ int main(int argc,char* argv[])
 	
 	if (strcmp(argv[1], "-c") == 0)//字符数
 	{
-		printf("文件%s  字符个数: %d",ppath, readOfChar(fl));//已经打开，直接读
+		printf("文件%s  字符个数: %d",ppath, readOfChar(fl));
 	}
 	else if (strcmp(argv[1], "-w") == 0)//单词数
 	{
